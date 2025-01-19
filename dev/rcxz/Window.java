@@ -7,20 +7,27 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class Window extends Frame {
-    public final int width;
-    public final int height;
-
-    public Window() {
-        super(Application.applicationName);
-        setExtendedState(6);
-        setUndecorated(true);
+    public Window(String title) {
+        super(title);
+        if (Application.fullscreen) {
+            setExtendedState(6);
+            setUndecorated(true);
+            setResizable(false);
+        } else {
+            setExtendedState(0);
+            setUndecorated(false);
+            setResizable(true);
+            setSize(1280, 720);
+            setLocationRelativeTo(null);
+        }
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
                 System.exit(0);
             }
         });
+    }
 
-        this.width = getWidth();
-        this.height = getHeight();
+    public Window() {
+        this(Application.applicationName);
     }
 }
