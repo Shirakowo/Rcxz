@@ -1,7 +1,8 @@
-import dev.rcxz.Window;
+import dev.rcxz.Application;
 
 public class Test {
     public static void main(String var0[]) {
-        Window.setup();
+        Application.applicationName = "Test";
+        Application.run();
     }
 }
