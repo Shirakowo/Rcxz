@@ -10,8 +10,8 @@ public class Window extends Frame {
     public final int width;
     public final int height;
 
-    public Window(String title) {
-        super(title);
+    public Window() {
+        super(Application.applicationName);
         setExtendedState(6);
         setUndecorated(true);
         addWindowListener(new WindowAdapter() {

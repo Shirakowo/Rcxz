@@ -16,6 +16,8 @@ public class Application {
     /** The maximum frame rate that the game tries to render */
     public static int frameRate = -1;
 
+    /** The window of the application */
+    public static Window window;
     /** The username of current user */
     public static final String username = System.getProperty("user.name");
     /** The path of the temporary data or cache directory */
@@ -28,7 +30,8 @@ public class Application {
     public static void run() {
         SwingUtilities.invokeLater(() -> {
             try {
-                new Window(applicationName).setVisible(true);
+                window = new Window();
+                window.setVisible(true);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
