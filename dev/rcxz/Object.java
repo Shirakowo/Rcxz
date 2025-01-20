@@ -5,4 +5,9 @@ package dev.rcxz;
 public class Object {
     public boolean enabled;
     public String name;
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }
