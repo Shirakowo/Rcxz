@@ -27,9 +27,4 @@ public class Square extends Component {
         g.setColor(Color.black);
         g.fillRect(dx, dy, this.transform.scale.x, this.transform.scale.y);
     }
-
-    @Override
-    public String toString() {
-        return this.name;
-    }
 }

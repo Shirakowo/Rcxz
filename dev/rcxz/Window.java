@@ -7,12 +7,16 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Window extends Frame {
+public class Window extends Frame implements Runnable {
+    private static Thread thread;
     private static final GraphicsEnvironment v1 = GraphicsEnvironment.getLocalGraphicsEnvironment();
     private static final GraphicsDevice v2 = v1.getDefaultScreenDevice();
     private static final DisplayMode v3 = v2.getDisplayMode();
@@ -49,6 +53,9 @@ public class Window extends Frame {
                 System.exit(0);
             }
         });
+
+        thread = new Thread(this);
+        thread.start();
     }
 
     public Window() {
@@ -56,7 +63,20 @@ public class Window extends Frame {
     }
 
     @Override
+    public void run() {
+        while (true) {
+            repaint();
+        }
+    }
+
+    @Override
+    public void update(Graphics g) {
+        paint(g);
+    }
+
+    @Override
     public void paint(Graphics g) {
+        g.clearRect(0, 0, width, height);
         if (c != null) {
             for (Component c : c) {
                 if (c.enabled) {

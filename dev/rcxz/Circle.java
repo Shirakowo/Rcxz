@@ -27,9 +27,4 @@ public class Circle extends Component {
         g.setColor(Color.black);
         g.fillOval(dx, dy, this.transform.scale.x, this.transform.scale.y);
     }
-
-    @Override
-    public String toString() {
-        return this.name;
-    }
 }

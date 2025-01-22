@@ -12,9 +12,4 @@ public class Component extends Object {
         g.setColor(Color.black);
         g.fillRect(0, 0, 1, 1);
     }
-
-    @Override
-    public String toString() {
-        return this.name;
-    }
 }
